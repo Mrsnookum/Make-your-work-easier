@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Personal Assistant</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Favicon -->
+<link rel="icon" type="image/jpeg" href="favicon.jpg">
+<!-- Font Awesome CSS for social icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <h1>My Personal Assistant</h1>
+  <nav id="navMenu">
+    <button onclick="showSection('dashboard')">Dashboard</button>
+    <button onclick="showSection('tasks')">Tasks</button>
+    <button onclick="showSection('notes')">Notes</button>
+  </nav>
+  <button id="menuToggle" class="mobile-menu" aria-label="Toggle menu">☰</button>
+</header>
+
+<main>
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="active">
+    <div class="toolbar">
+      <input id="globalSearch" type="text" placeholder="Search tasks & notes..." />
+      <div class="toolbar-actions">
+        <button id="quickAddBtn">+ Quick Add Task</button>
+        <button id="exportTasksBtn">Export Tasks CSV</button>
+        <button id="exportNotesBtn">Export Notes CSV</button>
+      </div>
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Total Tasks</div>
+        <div class="card-value" id="cardTotal">0</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Completed</div>
+        <div class="card-value" id="cardCompleted">0</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Pending</div>
+        <div class="card-value" id="cardPending">0</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Overdue</div>
+        <div class="card-value" id="cardOverdue">0</div>
+      </div>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="progress-wrap">
+      <div class="progress-labels">
+        <span>Completion</span>
+        <span id="progressPct">0%</span>
+      </div>
+      <div class="progress">
+        <div id="progressBar" class="progress-bar" style="width:0%"></div>
+      </div>
+    </div>
+
+    <!-- SPLIT GRID -->
+    <div class="grid-2">
+      <div>
+        <h3 class="section-title">Tasks</h3>
+        <table id="tasksTable" class="table">
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Due Date</th>
+              <th>Status</th>
+              <th class="actions-col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="taskTableBody"></tbody>
+        </table>
+      </div>
+      <div>
+        <h3 class="section-title">Notes</h3>
+        <table id="notesTable" class="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Content</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="noteTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- TASKS -->
+  <section id="tasks">
+    <h2>Tasks</h2>
+    <form id="taskForm">
+      <input type="text" id="taskInput" placeholder="Task description" required>
+      <input type="date" id="dueDateInput">
+      <input type="email" id="emailInput" placeholder="Reminder Email (optional)">
+      <button type="submit">Add Task</button>
+    </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Due Date</th>
+          <th>Status</th>
+          <th class="actions-col">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="taskTableBodyFull"></tbody>
+    </table>
+  </section>
+
+  <!-- NOTES -->
+  <section id="notes">
+    <h2>Notes</h2>
+    <form id="noteForm">
+      <input type="text" id="noteTitle" placeholder="Note title" required>
+      <textarea id="noteContent" placeholder="Note content" required></textarea>
+      <button type="submit">Add Note</button>
+    </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Content</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="noteTableBodyFull"></tbody>
+    </table>
+  </section>
+</main>
+
+<!-- ====== Footer ====== -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="social-icons">
+      <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <p class="developer-credit">
+      Developed by 
+      <a href="https://mrsnookum.github.io/Brighton-Portfolio/" target="_blank">
+        Brighton thee Dev
+      </a>
+    </p>
+  </div>
+</footer>
+
+<!-- FontAwesome for Social Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
